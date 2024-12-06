@@ -52,7 +52,7 @@ static void make_kn(unsigned char *k1, unsigned char *l, int bl)
     }
     /* If MSB set fixup with R */
     if (l[0] & 0x80)
-        k1[bl - 1] ^= bl == 16 ? 0x87 : 0x1b;
+        (k1[bl - 1] ^= bl) == 16 ? 0x87 : 0x1b;
 }
 
 static CMAC_ACPKM_CTX *CMAC_ACPKM_CTX_new(void)
